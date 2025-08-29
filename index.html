@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media Pembelajaran Interaktif: Alam Pegunungan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #a8dadc, #457b9d);
+            color: #1d3557;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2a9d8f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .quiz-section {
+            margin-top: 40px;
+            background-color: #f1faee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .quiz-question {
+            font-weight: bold;
+        }
+        .quiz-options {
+            margin: 15px 0;
+        }
+        .quiz-options label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #21867a;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            color: #a8dadc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Media Pembelajaran Interaktif: Alam Pegunungan</h1>
+        <p>Belajar mengenal keindahan dan fakta tentang pegunungan</p>
+    </header>
+    <main>
+        <section>
+            <h2>Apa itu Pegunungan?</h2>
+            <p>
+                Pegunungan adalah deretan gunung yang terbentuk akibat pergerakan lempeng bumi. 
+                Pegunungan memiliki peranan penting dalam menjaga keseimbangan ekosistem dan 
+                sumber kehidupan bagi berbagai flora dan fauna.
+            </p>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Pemandangan Pegunungan" />
+        </section>
+
+        <section>
+            <h2>Fakta Menarik Tentang Pegunungan</h2>
+            <ul>
+                <li>Puncak tertinggi di dunia adalah Gunung Everest dengan ketinggian 8.848 meter.</li>
+                <li>Pegunungan berperan sebagai sumber air bagi banyak sungai besar.</li>
+                <li>Hutan pegunungan menjadi habitat bagi berbagai spesies unik.</li>
+                <li>Cuaca di pegunungan cenderung lebih dingin dibanding dataran rendah.</li>
+            </ul>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Quiz Singkat</h2>
+            <div class="quiz-question" id="question">Apa nama puncak tertinggi di dunia?</div>
+            <div class="quiz-options" id="options">
+                <label><input type="radio" name="quiz" value="A"> Gunung Kilimanjaro</label>
+                <label><input type="radio" name="quiz" value="B"> Gunung Everest</label>
+                <label><input type="radio" name="quiz" value="C"> Gunung Fuji</label>
+                <label><input type="radio" name="quiz" value="D"> Gunung Merapi</label>
+            </div>
+            <button onclick="checkAnswer()">Cek Jawaban</button>
+            <div class="result" id="result"></div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Media Pembelajaran Alam Pegunungan
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            const options = document.getElementsByName('quiz');
+            let selected = null;
+            for (const option of options) {
+                if (option.checked) {
+                    selected = option.value;
+                    break;
+                }
+            }
+            const resultEl = document.getElementById('result');
+            if (!selected) {
+                resultEl.style.color = 'red';
+                resultEl.textContent = 'Silakan pilih jawaban terlebih dahulu!';
+                return;
+            }
+            if (selected === 'B') {
+                resultEl.style.color = 'green';
+                resultEl.textContent = 'Benar! Gunung Everest adalah puncak tertinggi di dunia.';
+            } else {
+                resultEl.style.color = 'red';
+                resultEl.textContent = 'Salah. Jawaban yang benar adalah Gunung Everest.';
+            }
+        }
+    </script>
+</body>
+</html>
